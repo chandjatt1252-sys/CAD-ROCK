@@ -1,1415 +1,809 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZERO | Handcrafted Luxury & Wearable Tech</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google Fonts: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              black: '#070708',
-              surface: '#121215',
-              card: '#18181c',
-              border: 'rgba(255, 255, 255, 0.08)',
-              pink: '#ff3366',
-              pinkHover: '#e02e5a',
-              muted: '#9999a1',
-            }
-          },
-          animation: {
-            'text-scroll': 'textScroll 28s linear infinite',
-            'logo-scroll': 'logoScroll 22s linear infinite',
-            'gradient-move': 'gradientMove 6s linear infinite',
-          },
-          keyframes: {
-            textScroll: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
-            logoScroll: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
-            gradientMove: {
-              '0%, 100%': { 'background-position': '0% 50%' },
-              '50%': { 'background-position': '100% 50%' },
-            }
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    /* Custom Scrollbars */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #070708;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #22222a;
-      border-radius: 9999px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #ff3366;
-    }
-
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* Glassmorphism Effect */
-    .glass-nav {
-      background: rgba(7, 7, 8, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-
-    .glass-modal {
-      background: rgba(18, 18, 21, 0.95);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-    }
-
-    .card-overlay {
-      background: linear-gradient(180deg, rgba(7, 7, 8, 0.15) 0%, rgba(7, 7, 8, 0.6) 100%);
-    }
-
-    .hover-line-effect {
-      position: relative;
-    }
-
-    .hover-line-effect::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: #ff3366;
-      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .hover-line-effect:hover::after {
-      width: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZERO Lifestyle | Official Store</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+        .dark-glass { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(16px); }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-cyan-500 selection:text-white">
 
-<body
-  class="bg-brand-black text-white font-sans antialiased selection:bg-brand-pink selection:text-white overflow-x-hidden min-h-screen flex flex-col">
-
-  <!-- ================= 1. ANNOUNCEMENT MARQUEE ================= -->
-  <div
-    class="bg-gradient-to-r from-brand-pink via-pink-500 to-rose-600 bg-[length:200%_auto] animate-gradient-move text-white text-xs font-bold uppercase tracking-widest py-2.5 overflow-hidden whitespace-nowrap border-b border-brand-border">
-    <div class="inline-block animate-text-scroll hover:[animation-play-state:paused] cursor-pointer">
-      <span class="px-8"><i class="fa-solid fa-bolt mr-2"></i>Flash Sale: Up to 50% OFF New Arrivals — Use Code:
-        CAD ROCK</span>
-      <span class="px-8"><i class="fa-solid fa-truck-fast mr-2"></i>Complimentary Express Shipping Across
-        Pakistan</span>
-      <span class="px-8"><i class="fa-solid fa-gem mr-2"></i>Bespoke Handcrafted Wearables & Couture</span>
-      <span class="px-8"><i class="fa-solid fa-bolt mr-2"></i>Flash Sale: Up to 50% OFF New Arrivals — Use Code:
-        CAD ROCK</span>
-      <span class="px-8"><i class="fa-solid fa-truck-fast mr-2"></i>Complimentary Express Shipping Across
-        Pakistan</span>
-    </div>
-  </div>
-
-  <!-- ================= 2. STICKY HEADER ================= -->
-  <header class="sticky top-0 z-40 glass-nav border-b border-brand-border transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2 group">
-        <span
-          class="text-2xl font-extrabold tracking-[0.25em] text-white transition-colors group-hover:text-brand-pink">CAD ROCK</span>
-        <span class="w-2 h-2 rounded-full bg-brand-pink shadow-[0_0_10px_#ff3366] animate-pulse"></span>
-      </a>
-
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#hero"
-          class="text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover-line-effect">Home</a>
-        <a href="#products" onclick="filterCategory('All')"
-          class="text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover-line-effect">All
-          Collections</a>
-        <a href="#products" onclick="filterCategory('Smartwatches')"
-          class="text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover-line-effect">Smart
-          Watches</a>
-        <a href="#products" onclick="filterCategory('Luxury Pret')"
-          class="text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover-line-effect">Luxury
-          Pret</a>
-        <a href="#products" onclick="filterCategory('Earbuds')"
-          class="text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover-line-effect">Audio</a>
-      </nav>
-
-      <!-- Action Icons -->
-      <div class="flex items-center gap-5">
-        <!-- Search -->
-        <button onclick="toggleSearchModal()"
-          class="text-gray-300 hover:text-white transition-transform hover:scale-110 p-2">
-          <i class="fa-solid fa-magnifying-glass text-lg"></i>
-        </button>
-
-        <!-- Wishlist -->
-        <button onclick="toggleWishlistModal()"
-          class="relative text-gray-300 hover:text-brand-pink transition-transform hover:scale-110 p-2">
-          <i class="fa-regular fa-heart text-xl"></i>
-          <span id="wishlist-badge"
-            class="absolute -top-1 -right-1 bg-brand-pink text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center opacity-0 transition-opacity">0</span>
-        </button>
-
-        <!-- Cart Drawer Trigger -->
-        <button onclick="toggleCartDrawer()"
-          class="relative text-gray-300 hover:text-white transition-transform hover:scale-110 p-2">
-          <i class="fa-solid fa-bag-shopping text-xl"></i>
-          <span id="cart-badge"
-            class="absolute -top-1 -right-1 bg-brand-pink text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center transition-transform scale-100">0</span>
-        </button>
-
-        <!-- Mobile Menu Toggle -->
-        <button onclick="toggleMobileMenu()" class="md:hidden text-gray-300 hover:text-white p-2">
-          <i class="fa-solid fa-bars-staggered text-2xl"></i>
-        </button>
-      </div>
+    <!-- Announcement Bar -->
+    <div class="bg-gradient-to-r from-slate-900 via-cyan-950 to-slate-900 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide flex items-center justify-center gap-2">
+        <span class="bg-cyan-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">Flash Sale</span>
+        <span>FREE EXPRESS SHIPPING ON ALL ORDERS OVER PKR 3,000!</span>
     </div>
 
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden bg-brand-surface border-b border-brand-border px-6 py-6 space-y-4">
-      <a href="#hero" onclick="toggleMobileMenu()"
-        class="block text-sm font-semibold tracking-wider text-gray-300 hover:text-brand-pink">HOME</a>
-      <a href="#products" onclick="filterCategory('All'); toggleMobileMenu()"
-        class="block text-sm font-semibold tracking-wider text-gray-300 hover:text-brand-pink">ALL COLLECTIONS</a>
-      <a href="#products" onclick="filterCategory('Smartwatches'); toggleMobileMenu()"
-        class="block text-sm font-semibold tracking-wider text-gray-300 hover:text-brand-pink">SMART WATCHES</a>
-      <a href="#products" onclick="filterCategory('Luxury Pret'); toggleMobileMenu()"
-        class="block text-sm font-semibold tracking-wider text-gray-300 hover:text-brand-pink">LUXURY PRET</a>
-      <a href="#products" onclick="filterCategory('Earbuds'); toggleMobileMenu()"
-        class="block text-sm font-semibold tracking-wider text-gray-300 hover:text-brand-pink">EARBUDS</a>
-    </div>
-  </header>
-
-  <!-- ================= 3. HERO SECTION ================= -->
-  <section id="hero"
-    class="relative h-[80vh] min-h-[550px] flex items-center justify-start px-6 sm:px-12 lg:px-24 overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2000" alt="Zero Lifestyle Hero"
-        class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000">
-      <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/80 to-transparent"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-transparent to-brand-black/40"></div>
-    </div>
-
-    <div class="relative z-10 max-w-2xl space-y-6">
-      <div
-        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-pink/10 border border-brand-pink/30 text-brand-pink text-xs font-bold tracking-widest uppercase backdrop-blur-md">
-        <i class="fa-solid fa-sparkles text-[10px]"></i> Next-Gen Collection 2026
-      </div>
-
-      <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
-        Bespoke Elegance. <br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-brand-pink">Smart
-          Innovation.</span>
-      </h1>
-
-      <p class="text-gray-400 text-sm sm:text-base leading-relaxed max-w-lg font-normal">
-        Explore couture handcrafted to perfection, seamlessly combined with next-generation smart wearable devices
-        designed for leadership.
-      </p>
-
-      <div class="flex flex-wrap items-center gap-4 pt-2">
-        <a href="#products"
-          class="px-8 py-4 bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs uppercase tracking-widest rounded-md transition-all duration-300 shadow-[0_10px_30px_rgba(255,51,102,0.3)] hover:-translate-y-0.5">
-          Shop Storefront
-        </a>
-        <a href="#products" onclick="filterCategory('Smartwatches')"
-          class="px-8 py-4 bg-brand-surface/80 hover:bg-white/10 text-white border border-brand-border font-bold text-xs uppercase tracking-widest rounded-md backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5">
-          Smartwatches
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= 4. BRAND LOGO MARQUEE ================= -->
-  <div class="bg-brand-surface border-y border-brand-border py-8 overflow-hidden whitespace-nowrap">
-    <div class="inline-flex items-center animate-logo-scroll hover:[animation-play-state:paused]">
-      <div class="flex items-center gap-16 px-8 opacity-40 hover:opacity-100 transition-opacity">
-        <span class="text-xl font-black tracking-widest text-white">CHANEL</span>
-        <span class="text-xl font-black tracking-widest text-white">GUCCI</span>
-        <span class="text-xl font-black tracking-widest text-white">CAD ROCK</span>
-        <span class="text-xl font-black tracking-widest text-white">ARMANI</span>
-        <span class="text-xl font-black tracking-widest text-white">VERSACE</span>
-      </div>
-      <div class="flex items-center gap-16 px-8 opacity-40 hover:opacity-100 transition-opacity">
-        <span class="text-xl font-black tracking-widest text-white">CHANEL</span>
-        <span class="text-xl font-black tracking-widest text-white">GUCCI</span>
-        <span class="text-xl font-black tracking-widest text-white">CAD ROCK</span>
-        <span class="text-xl font-black tracking-widest text-white">ARMANI</span>
-        <span class="text-xl font-black tracking-widest text-white">VERSACE</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= 5. STORE CATALOG SECTION ================= -->
-  <section id="products" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex-grow">
-
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-      <div>
-        <h2 class="text-xs font-bold text-brand-pink uppercase tracking-widest mb-2">Curated Catalog</h2>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Featured Products</h3>
-      </div>
-
-      <!-- Category Filter Tabs -->
-      <div id="category-tabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 md:pb-0">
-        <button onclick="filterCategory('All')"
-          class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-brand-pink text-white shadow-lg">All</button>
-        <button onclick="filterCategory('Smartwatches')"
-          class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-brand-surface text-gray-400 hover:text-white border border-brand-border">Smartwatches</button>
-        <button onclick="filterCategory('Earbuds')"
-          class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-brand-surface text-gray-400 hover:text-white border border-brand-border">Earbuds</button>
-        <button onclick="filterCategory('Luxury Pret')"
-          class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-brand-surface text-gray-400 hover:text-white border border-brand-border">Luxury
-          Pret</button>
-        <button onclick="filterCategory('Formals')"
-          class="tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-brand-surface text-gray-400 hover:text-white border border-brand-border">Formals</button>
-      </div>
-    </div>
-
-    <!-- Product Slider Container -->
-    <div class="relative group">
-      <button onclick="scrollProducts(-1)"
-        class="absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-brand-surface border border-brand-border text-white flex items-center justify-center shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity hover:bg-brand-pink hover:border-brand-pink">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-
-      <div id="product-grid" class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth py-4">
-        <!-- Injected via JavaScript -->
-      </div>
-
-      <button onclick="scrollProducts(1)"
-        class="absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-brand-surface border border-brand-border text-white flex items-center justify-center shadow-2xl opacity-0 group-hover:opacity-100 transition-opacity hover:bg-brand-pink hover:border-brand-pink">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-    </div>
-  </section>
-
-  <!-- ================= 6. PRODUCT QUICK-VIEW MODAL ================= -->
-  <div id="product-modal"
-    class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div
-      class="bg-brand-surface border border-brand-border rounded-2xl w-full max-w-4xl overflow-hidden shadow-2xl relative flex flex-col md:flex-row max-h-[90vh] overflow-y-auto">
-      <button onclick="closeProductModal()"
-        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-black/60 text-gray-400 hover:text-white flex items-center justify-center border border-brand-border">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="md:w-1/2 bg-brand-card relative h-80 md:h-auto">
-        <img id="modal-image" src="" alt="Product Detail" class="w-full h-full object-cover">
-      </div>
-
-      <div class="md:w-1/2 p-8 flex flex-col justify-between space-y-6">
-        <div>
-          <span id="modal-category" class="text-xs font-bold text-brand-pink uppercase tracking-widest">Category</span>
-          <h2 id="modal-title" class="text-2xl font-extrabold text-white mt-1">Product Title</h2>
-          <div class="flex items-center gap-3 mt-3">
-            <span id="modal-price" class="text-xl font-extrabold text-brand-pink">PKR 0</span>
-            <span id="modal-original-price" class="text-sm text-gray-500 line-through hidden">PKR 0</span>
-          </div>
-          <p id="modal-desc" class="text-xs text-gray-400 mt-4 leading-relaxed">Handcrafted premium quality with
-            precision engineering and bespoke materials for optimal comfort and performance.</p>
-
-          <div class="mt-6 space-y-3">
-            <label class="text-xs font-bold text-gray-300 uppercase tracking-wider block">Select Variant / Size</label>
-            <div class="flex gap-2">
-              <button
-                class="px-4 py-2 text-xs font-bold border border-brand-pink bg-brand-pink/20 text-white rounded-md">Default</button>
-              <button
-                class="px-4 py-2 text-xs font-bold border border-brand-border text-gray-400 rounded-md hover:border-white">Edition
-                2.0</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="pt-4 border-t border-brand-border flex gap-4">
-          <button id="modal-add-btn"
-            class="flex-grow py-4 bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg">
-            Add To Bag
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= 7. CART DRAWER ================= -->
-  <div id="cart-drawer-overlay" onclick="toggleCartDrawer()"
-    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300">
-  </div>
-
-  <div id="cart-drawer"
-    class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-brand-surface border-l border-brand-border z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
-    <div class="p-6 border-b border-brand-border flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-bag-shopping text-brand-pink text-xl"></i>
-        <h3 class="text-lg font-bold text-white tracking-wide">Shopping Bag</h3>
-      </div>
-      <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-white p-2">
-        <i class="fa-solid fa-xmark text-xl"></i>
-      </button>
-    </div>
-
-    <!-- Free Shipping Progress -->
-    <div class="px-6 py-3 bg-brand-card border-b border-brand-border">
-      <div class="flex justify-between text-xs font-semibold mb-1">
-        <span id="shipping-status-text" class="text-gray-300">Add PKR 5,000 for FREE Shipping</span>
-        <span id="shipping-percent" class="text-brand-pink">0%</span>
-      </div>
-      <div class="w-full h-1.5 bg-brand-black rounded-full overflow-hidden">
-        <div id="shipping-progress-bar" class="h-full bg-brand-pink transition-all duration-500 w-0"></div>
-      </div>
-    </div>
-
-    <div id="cart-items-container" class="flex-grow p-6 overflow-y-auto space-y-4">
-      <!-- Dynamic Cart Rows -->
-    </div>
-
-    <div class="p-6 border-t border-brand-border bg-brand-card space-y-4">
-      <div class="space-y-2">
-        <div class="flex justify-between text-sm text-gray-400">
-          <span>Subtotal</span>
-          <span id="cart-subtotal" class="font-bold text-white">PKR 0</span>
-        </div>
-        <div class="flex justify-between text-base text-white font-extrabold pt-2 border-t border-brand-border">
-          <span>Total</span>
-          <span id="cart-total" class="text-brand-pink">PKR 0</span>
-        </div>
-      </div>
-
-      <button onclick="openCheckoutModal()"
-        class="w-full py-4 bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs uppercase tracking-widest rounded-md shadow-[0_10px_25px_rgba(255,51,102,0.3)] transition-all">
-        Proceed To Checkout
-      </button>
-    </div>
-  </div>
-
-  <!-- ================= 8. CHECKOUT MODAL ================= -->
-  <div id="checkout-modal"
-    class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div
-      class="bg-brand-surface border border-brand-border rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl p-6 sm:p-8 space-y-6 relative">
-      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
-
-      <div class="border-b border-brand-border pb-4">
-        <h3 class="text-xl font-extrabold text-white">Shipping & Contact Info</h3>
-        <p class="text-xs text-gray-400">Complete your details to place the order.</p>
-      </div>
-
-      <form id="checkout-form" onsubmit="submitOrder(event)" class="space-y-4">
-        <div>
-          <label class="text-xs font-bold text-gray-300 block mb-1">Full Name *</label>
-          <input type="text" id="cust-name" required placeholder="e.g. Muhammad Ali"
-            class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-        </div>
-
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="text-xs font-bold text-gray-300 block mb-1">Phone Number *</label>
-            <input type="tel" id="cust-phone" required placeholder="03001234567"
-              class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-          </div>
-          <div>
-            <label class="text-xs font-bold text-gray-300 block mb-1">City *</label>
-            <input type="text" id="cust-city" required placeholder="Faisalabad"
-              class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-          </div>
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-300 block mb-1">Complete Address *</label>
-          <textarea id="cust-address" required rows="2" placeholder="House #, Street, Area..."
-            class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink"></textarea>
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-300 block mb-1">Payment Method</label>
-          <select id="cust-payment"
-            class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-            <option value="Cash on Delivery">Cash on Delivery (COD)</option>
-            <option value="Online Bank Transfer">Online Bank Transfer</option>
-          </select>
-        </div>
-
-        <button type="submit"
-          class="w-full py-4 bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg mt-4">
-          Place Order Now
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ================= 9. WISHLIST MODAL ================= -->
-  <div id="wishlist-modal-overlay" onclick="toggleWishlistModal()"
-    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300">
-  </div>
-  <div id="wishlist-modal"
-    class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-brand-surface border-l border-brand-border z-50 transform translate-x-full transition-transform duration-300 ease-out flex flex-col shadow-2xl">
-    <div class="p-6 border-b border-brand-border flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-heart text-brand-pink text-xl"></i>
-        <h3 class="text-lg font-bold text-white tracking-wide">Saved Wishlist</h3>
-      </div>
-      <button onclick="toggleWishlistModal()" class="text-gray-400 hover:text-white p-2">
-        <i class="fa-solid fa-xmark text-xl"></i>
-      </button>
-    </div>
-    <div id="wishlist-items-container" class="flex-grow p-6 overflow-y-auto space-y-4"></div>
-  </div>
-
-  <!-- ================= 10. SEARCH MODAL ================= -->
-  <div id="search-modal"
-    class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex-col items-center justify-start pt-28 px-4">
-    <div class="w-full max-w-2xl relative">
-      <input type="text" id="search-input" onkeyup="handleSearch()"
-        placeholder="Search Luxury Pret, Smartwatches, Earbuds..."
-        class="w-full py-4 pl-6 pr-14 bg-brand-card border border-brand-border rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-brand-pink text-base shadow-2xl">
-      <button onclick="toggleSearchModal()"
-        class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white p-2">
-        <i class="fa-solid fa-xmark text-xl"></i>
-      </button>
-    </div>
-    <div id="search-results" class="w-full max-w-2xl mt-4 max-h-[60vh] overflow-y-auto space-y-2"></div>
-  </div>
-
-  <!-- ================= 11. SECRET ADMIN AUTHENTICATION MODAL ================= -->
-  <div id="admin-auth-modal"
-    class="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 hidden flex items-center justify-center p-4">
-    <div
-      class="bg-brand-surface border border-brand-border rounded-2xl w-full max-w-md p-8 relative shadow-2xl space-y-6">
-
-      <button onclick="closeAdminAuthModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white p-2">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
-
-      <div class="text-center space-y-2">
-        <div
-          class="w-12 h-12 bg-brand-pink/10 border border-brand-pink/30 rounded-full flex items-center justify-center mx-auto text-brand-pink text-xl">
-          <i class="fa-solid fa-shield-halved"></i>
-        </div>
-        <h3 class="text-xl font-extrabold text-white">Security Restricted Portal</h3>
-        <p class="text-xs text-gray-400">Authorized Personnel Login Only</p>
-      </div>
-
-      <!-- Step 1: Email & Password Form -->
-      <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
-        <div>
-          <label class="text-xs font-bold text-gray-300 block mb-1">Email Address</label>
-          <input type="email" id="admin-email" required placeholder=".....@gmail.com"
-            class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-300 block mb-1">Password</label>
-          <input type="password" id="admin-pass" required placeholder="••••••••"
-            class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-        </div>
-
-        <div id="admin-login-error" class="text-xs text-rose-500 font-semibold hidden text-center"></div>
-
-        <button type="submit" id="login-submit-btn"
-          class="w-full py-3.5 bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg">
-          Authenticate Credentials
-        </button>
-      </form>
-
-      <!-- Step 2: 2FA OTP Form (Hidden Initially) -->
-      <form id="admin-otp-form" onsubmit="handleOtpVerify(event)" class="space-y-4 hidden">
-        <div class="bg-brand-card p-3 rounded-lg border border-brand-border text-center space-y-1">
-          <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Two-Factor OTP Security
-            Code</span>
-          <div id="generated-otp-display" class="text-2xl font-black tracking-widest text-brand-pink">------</div>
-          <p class="text-[10px] text-gray-500">Enter the verification code shown above.</p>
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-300 block mb-1">6-Digit Verification Code</label>
-          <input type="text" id="admin-otp-input" maxlength="6" required placeholder="123456"
-            class="w-full text-center tracking-widest font-mono text-base bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-pink">
-        </div>
-
-        <div id="otp-error" class="text-xs text-rose-500 font-semibold hidden text-center"></div>
-
-        <button type="submit"
-          class="w-full py-3.5 bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg">
-          Verify 2FA & Access Dashboard
-        </button>
-      </form>
-
-    </div>
-  </div>
-
-  <!-- ================= 12. ADMIN DASHBOARD FULLSCREEN OVERLAY ================= -->
-  <div id="admin-dashboard-screen" class="fixed inset-0 bg-brand-black z-50 hidden flex-col overflow-y-auto">
-
-    <!-- Top Admin Header -->
-    <div
-      class="bg-brand-surface border-b border-brand-border px-6 py-4 flex items-center justify-between sticky top-0 z-30">
-      <div class="flex items-center gap-3">
-        <span class="text-xl font-extrabold tracking-widest text-white">CAD ROCK</span>
-        <span
-          class="px-2.5 py-1 rounded bg-brand-pink/20 text-brand-pink border border-brand-pink/30 text-[10px] font-bold uppercase tracking-wider">Master
-          Control Panel</span>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <div
-          class="hidden sm:flex items-center gap-2 text-xs text-gray-400 bg-brand-card px-3 py-1.5 rounded-full border border-brand-border">
-          <i class="fa-solid fa-clock text-brand-pink"></i>
-          <span>Auto-Logout In: <strong id="session-timer-display" class="text-white">05:00</strong></span>
-        </div>
-
-        <button onclick="logoutAdmin()"
-          class="px-4 py-2 bg-rose-600/20 hover:bg-rose-600 text-rose-400 hover:text-white border border-rose-600/30 text-xs font-bold uppercase tracking-wider rounded-lg transition-all">
-          <i class="fa-solid fa-power-off mr-1.5"></i> Exit Dashboard
-        </button>
-      </div>
-    </div>
-
-    <!-- Dashboard Content Container -->
-    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-grow">
-
-      <!-- Metrics Overview Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-brand-surface p-6 rounded-2xl border border-brand-border space-y-2">
-          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Total Sales</span>
-          <h3 id="stat-sales" class="text-2xl font-extrabold text-brand-pink">PKR 0</h3>
-          <p class="text-[10px] text-gray-500">Gross store revenue generated</p>
-        </div>
-
-        <div class="bg-brand-surface p-6 rounded-2xl border border-brand-border space-y-2">
-          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Total Orders</span>
-          <h3 id="stat-orders" class="text-2xl font-extrabold text-white">0</h3>
-          <p class="text-[10px] text-gray-500">Total customer orders recorded</p>
-        </div>
-
-        <div class="bg-brand-surface p-6 rounded-2xl border border-brand-border space-y-2">
-          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Pending Orders</span>
-          <h3 id="stat-pending" class="text-2xl font-extrabold text-amber-400">0</h3>
-          <p class="text-[10px] text-gray-500">Awaiting processing & dispatch</p>
-        </div>
-
-        <div class="bg-brand-surface p-6 rounded-2xl border border-brand-border space-y-2">
-          <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Delivered</span>
-          <h3 id="stat-delivered" class="text-2xl font-extrabold text-emerald-400">0</h3>
-          <p class="text-[10px] text-gray-500">Completed shipments</p>
-        </div>
-      </div>
-
-      <!-- Orders Table Section -->
-      <div class="bg-brand-surface border border-brand-border rounded-2xl p-6 space-y-6">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div>
-            <h3 class="text-lg font-bold text-white">Customer Orders Registry</h3>
-            <p class="text-xs text-gray-400">Live order records placed via storefront checkout.</p>
-          </div>
-
-          <button onclick="exportOrdersToCSV()"
-            class="px-4 py-2 bg-brand-card hover:bg-brand-black border border-brand-border text-xs font-bold uppercase tracking-wider text-white rounded-lg transition-all flex items-center gap-2">
-            <i class="fa-solid fa-file-csv text-brand-pink"></i> Export to CSV
-          </button>
-        </div>
-
-        <!-- Orders Table -->
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs text-gray-300">
-            <thead
-              class="bg-brand-card text-gray-400 uppercase text-[10px] tracking-wider border-b border-brand-border">
-              <tr>
-                <th class="p-4">Order ID</th>
-                <th class="p-4">Customer Details</th>
-                <th class="p-4">Shipping Address</th>
-                <th class="p-4">Items</th>
-                <th class="p-4">Total</th>
-                <th class="p-4">Status</th>
-                <th class="p-4 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="admin-orders-table-body" class="divide-y divide-brand-border">
-              <!-- Injected via JavaScript -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Add New Product Form Section -->
-      <div class="bg-brand-surface border border-brand-border rounded-2xl p-6 space-y-6">
-        <div>
-          <h3 class="text-lg font-bold text-white">Add New Product to Store Catalog</h3>
-          <p class="text-xs text-gray-400">Directly publish new inventory onto the storefront grid.</p>
-        </div>
-
-        <form onsubmit="handleAddNewProduct(event)" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label class="text-xs font-bold text-gray-300 block mb-1">Product Title *</label>
-            <input type="text" id="new-prod-title" required placeholder="e.g. Velvet Edition Smartwatch"
-              class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-          </div>
-
-          <div>
-            <label class="text-xs font-bold text-gray-300 block mb-1">Category *</label>
-            <select id="new-prod-category"
-              class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-              <option value="Smartwatches">Smartwatches</option>
-              <option value="Earbuds">Earbuds</option>
-              <option value="Luxury Pret">Luxury Pret</option>
-              <option value="Formals">Formals</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="text-xs font-bold text-gray-300 block mb-1">Price (PKR) *</label>
-            <input type="number" id="new-prod-price" required placeholder="9500"
-              class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-          </div>
-
-          <div class="md:col-span-2">
-            <label class="text-xs font-bold text-gray-300 block mb-1">Image URL *</label>
-            <input type="url" id="new-prod-img" required placeholder="https://images.unsplash.com/..."
-              class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-          </div>
-
-          <div>
-            <label class="text-xs font-bold text-gray-300 block mb-1">Badge Tag</label>
-            <input type="text" id="new-prod-badge" placeholder="New / Hot / 50% OFF"
-              class="w-full bg-brand-card border border-brand-border rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-brand-pink">
-          </div>
-
-          <div class="md:col-span-3 pt-2">
-            <button type="submit"
-              class="py-3.5 px-8 bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg">
-              Publish Product To Store
-            </button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ================= 13. MULTI-COLUMN LUXURY FOOTER ================= -->
-  <footer id="footer" class="bg-brand-surface border-t border-brand-border pt-20 pb-10 text-white mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-brand-border">
-        <div class="lg:col-span-1 space-y-4">
-          <div class="flex items-center gap-2">
-            <span class="text-2xl font-black tracking-[0.25em] text-white">CAD ROCK</span>
-            <span class="w-2 h-2 rounded-full bg-brand-pink shadow-[0_0_8px_#ff3366]"></span>
-          </div>
-          <p class="text-xs text-brand-muted leading-relaxed">
-            Redefining modern elegance and wearable intelligence. Handcrafted with passion and engineered for tomorrow.
-          </p>
-        </div>
-
-        <div class="space-y-4">
-          <h3
-            class="text-xs font-bold text-white uppercase tracking-widest relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-6 after:h-[2px] after:bg-brand-pink">
-            Quick Links</h3>
-          <ul class="space-y-2.5 text-xs text-brand-muted pt-2">
-            <li><a href="#hero"
-                class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Home Showcase</a>
-            </li>
-            <li><a href="#products" onclick="filterCategory('Smartwatches')"
-                class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Smart Watches</a>
-            </li>
-            <li><a href="#products" onclick="filterCategory('Earbuds')"
-                class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Ear Buds &
-                Audio</a></li>
-            <li><a href="#products" onclick="filterCategory('Luxury Pret')"
-                class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Men Luxury
-                Pret</a></li>
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          <h3
-            class="text-xs font-bold text-white uppercase tracking-widest relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-6 after:h-[2px] after:bg-brand-pink">
-            Client Support</h3>
-          <ul class="space-y-2.5 text-xs text-brand-muted pt-2">
-            <li><a href="#" class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Track
-                Order</a></li>
-            <li><a href="#"
-                class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Warranty
-                Registration</a></li>
-            <li><a href="#"
-                class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Shipping &
-                Deliveries</a></li>
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          <h3
-            class="text-xs font-bold text-white uppercase tracking-widest relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-6 after:h-[2px] after:bg-brand-pink">
-            Policies</h3>
-          <ul class="space-y-2.5 text-xs text-brand-muted pt-2">
-            <li><a href="#"
-                class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Privacy Policy</a>
-            </li>
-            <li><a href="#" class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Terms
-                of Service</a></li>
-            <li><a href="#"
-                class="hover:text-white transition-all duration-200 inline-block hover:translate-x-1">Exchange &
-                Refunds</a></li>
-          </ul>
-        </div>
-
-        <div class="space-y-4">
-          <h3
-            class="text-xs font-bold text-white uppercase tracking-widest relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-6 after:h-[2px] after:bg-brand-pink">
-            Follow Us</h3>
-          <div class="grid grid-cols-4 gap-0 border-t border-l border-brand-border pt-2">
-            <a href="#"
-              class="h-11 border-r border-b border-brand-border bg-brand-card flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-pink transition-all"><i
-                class="fa-brands fa-facebook-f text-xs"></i></a>
-            <a href="#"
-              class="h-11 border-r border-b border-brand-border bg-brand-card flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-pink transition-all"><i
-                class="fa-brands fa-x-twitter text-xs"></i></a>
-            <a href="#"
-              class="h-11 border-r border-b border-brand-border bg-brand-card flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-pink transition-all"><i
-                class="fa-brands fa-instagram text-xs"></i></a>
-            <a href="#"
-              class="h-11 border-r border-b border-brand-border bg-brand-card flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-pink transition-all"><i
-                class="fa-brands fa-youtube text-xs"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-muted">
-        <div><span>CADROCK.COM</span> • <span>© 2026 CAD ROCK. All Rights Reserved.</span></div>
-        <div class="flex items-center gap-4 text-sm text-gray-400">
-          <i class="fa-brands fa-cc-visa hover:text-white"></i>
-          <i class="fa-brands fa-cc-mastercard hover:text-white"></i>
-          <i class="fa-brands fa-cc-apple-pay hover:text-white"></i>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- ================= 14. JAVASCRIPT APPLICATION LOGIC ================= -->
-  <script>
-    // --- Initial Catalog Data ---
-    const initialProducts = [
-      { id: 1, title: "Royal Silk Embroidered Kurta", category: "Luxury Pret", price: 7000, originalPrice: 10000, badge: "70% OFF", image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800" },
-      { id: 2, title: "Zero Titan Smartwatch Pro", category: "Smartwatches", price: 12500, originalPrice: 16000, badge: "New", image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=800" },
-      { id: 3, title: "Floral Printed Longline Kurta", category: "Luxury Pret", price: 2400, originalPrice: 8000, badge: "Hot", image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=800" },
-      { id: 4, title: "Zero Wave ANC Earbuds", category: "Earbuds", price: 5500, originalPrice: 8000, badge: "Limited", image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=800" },
-      { id: 5, title: "Longline V-Neck Khaddar", category: "Luxury Pret", price: 4000, originalPrice: null, badge: "New", image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800" },
-      { id: 6, title: "Zero Ultra AMOLED Watch", category: "Smartwatches", price: 18000, originalPrice: 22000, badge: "Hot", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800" },
-      { id: 7, title: "Velvet Festive Suit Edition", category: "Formals", price: 10500, originalPrice: 15000, badge: "70% OFF", image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=800" },
-      { id: 8, title: "Zero Studio Wireless Buds", category: "Earbuds", price: 4200, originalPrice: 6000, badge: null, image: "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?q=80&w=800" }
-    ];
-
-    // Local Storage State Load
-    let products = JSON.parse(localStorage.getItem('zero_products')) || initialProducts;
-    let orders = JSON.parse(localStorage.getItem('zero_orders')) || [];
-    let cart = [];
-    let wishlist = [];
-    let activeCategory = 'All';
-
-    // Security & Auth State
-    let loginAttempts = 0;
-    let lockoutUntil = null;
-    let currentGeneratedOtp = null;
-    let sessionTimerInterval = null;
-    let remainingSessionTime = 300; // 5 Minutes (300 Seconds)
-
-    // --- Render Products ---
-    function renderProducts() {
-      const container = document.getElementById('product-grid');
-      container.innerHTML = '';
-
-      const filtered = activeCategory === 'All'
-        ? products
-        : products.filter(p => p.category === activeCategory);
-
-      filtered.forEach(p => {
-        const isWishlisted = wishlist.includes(p.id);
-
-        const cardHTML = `
-          <div class="product-card flex-shrink-0 w-72 bg-brand-surface border border-brand-border rounded-xl overflow-hidden group hover:border-brand-pink/50 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.6)]">
-            <div class="relative h-96 w-full overflow-hidden bg-brand-card">
-              <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out">
-              <div class="absolute inset-0 card-overlay opacity-80"></div>
-
-              ${p.badge ? `
-                <span class="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider rounded ${p.badge === '70% OFF' ? 'bg-brand-pink text-white' : 'bg-white text-black'}">
-                  ${p.badge}
-                </span>
-              ` : ''}
-
-              <button onclick="toggleWishlist(${p.id})" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-brand-surface/80 border border-brand-border backdrop-blur-md flex items-center justify-center text-white hover:text-brand-pink transition-all">
-                <i class="${isWishlisted ? 'fa-solid text-brand-pink' : 'fa-regular'} fa-heart text-sm"></i>
-              </button>
-
-              <div class="absolute inset-x-4 bottom-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 flex gap-2">
-                <button onclick="openProductModal(${p.id})" class="w-1/2 py-3 bg-brand-card border border-brand-border text-white font-bold text-xs uppercase tracking-wider rounded-lg hover:border-brand-pink">
-                  Quick View
-                </button>
-                <button onclick="addToCart(${p.id})" class="w-1/2 py-3 bg-brand-pink hover:bg-brand-pinkHover text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow-lg">
-                  Add To Bag
-                </button>
-              </div>
-            </div>
-
-            <div class="p-5 space-y-2">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-brand-muted">${p.category}</span>
-              <h4 class="text-sm font-semibold text-white truncate">${p.title}</h4>
-              <div class="flex items-center gap-2 pt-1">
-                <span class="text-sm font-extrabold text-brand-pink">PKR ${p.price.toLocaleString()}</span>
-                ${p.originalPrice ? `<span class="text-xs text-gray-500 line-through">PKR ${p.originalPrice.toLocaleString()}</span>` : ''}
-              </div>
-            </div>
-          </div>
-        `;
-        container.insertAdjacentHTML('beforeend', cardHTML);
-      });
-    }
-
-    function scrollProducts(direction) {
-      document.getElementById('product-grid').scrollBy({ left: direction * 320, behavior: 'smooth' });
-    }
-
-    function filterCategory(cat) {
-      activeCategory = cat;
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
-        btn.className = btn.innerText.trim().toLowerCase() === cat.toLowerCase()
-          ? 'tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-brand-pink text-white shadow-lg'
-          : 'tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-brand-surface text-gray-400 hover:text-white border border-brand-border';
-      });
-      renderProducts();
-    }
-
-    // --- Product Quick-View Modal ---
-    function openProductModal(productId) {
-      const p = products.find(prod => prod.id === productId);
-      if (!p) return;
-
-      document.getElementById('modal-image').src = p.image;
-      document.getElementById('modal-category').innerText = p.category;
-      document.getElementById('modal-title').innerText = p.title;
-      document.getElementById('modal-price').innerText = `PKR ${p.price.toLocaleString()}`;
-
-      const origPrice = document.getElementById('modal-original-price');
-      if (p.originalPrice) {
-        origPrice.innerText = `PKR ${p.originalPrice.toLocaleString()}`;
-        origPrice.classList.remove('hidden');
-      } else {
-        origPrice.classList.add('hidden');
-      }
-
-      document.getElementById('modal-add-btn').onclick = function () {
-        addToCart(p.id);
-        closeProductModal();
-      };
-
-      document.getElementById('product-modal').classList.remove('hidden');
-    }
-
-    function closeProductModal() {
-      document.getElementById('product-modal').classList.add('hidden');
-    }
-
-    // --- Wishlist Management ---
-    function toggleWishlist(id) {
-      const idx = wishlist.indexOf(id);
-      if (idx > -1) wishlist.splice(idx, 1);
-      else wishlist.push(id);
-
-      const badge = document.getElementById('wishlist-badge');
-      badge.innerText = wishlist.length;
-      badge.style.opacity = wishlist.length > 0 ? '1' : '0';
-
-      renderProducts();
-      renderWishlistUI();
-    }
-
-    function renderWishlistUI() {
-      const container = document.getElementById('wishlist-items-container');
-      container.innerHTML = '';
-
-      if (wishlist.length === 0) {
-        container.innerHTML = `<p class="text-xs text-gray-500 text-center py-10">Your wishlist is empty.</p>`;
-        return;
-      }
-
-      wishlist.forEach(id => {
-        const p = products.find(prod => prod.id === id);
-        container.insertAdjacentHTML('beforeend', `
-          <div class="flex items-center gap-4 bg-brand-card p-3 rounded-lg border border-brand-border">
-            <img src="${p.image}" class="w-14 h-14 object-cover rounded">
-            <div class="flex-grow">
-              <h5 class="text-xs font-bold text-white">${p.title}</h5>
-              <span class="text-xs text-brand-pink font-semibold">PKR ${p.price.toLocaleString()}</span>
-            </div>
-            <button onclick="addToCart(${p.id})" class="p-2 text-xs bg-brand-pink text-white rounded"><i class="fa-solid fa-cart-plus"></i></button>
-            <button onclick="toggleWishlist(${p.id})" class="p-2 text-xs text-gray-400 hover:text-white"><i class="fa-solid fa-trash"></i></button>
-          </div>
-        `);
-      });
-    }
-
-    function toggleWishlistModal() {
-      const modal = document.getElementById('wishlist-modal');
-      const overlay = document.getElementById('wishlist-modal-overlay');
-      const isOpen = !modal.classList.contains('translate-x-full');
-
-      if (isOpen) {
-        modal.classList.add('translate-x-full');
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-      } else {
-        modal.classList.remove('translate-x-full');
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-      }
-    }
-
-    // --- Cart & Checkout Management ---
-    function addToCart(id) {
-      const existing = cart.find(i => i.id === id);
-      if (existing) existing.quantity += 1;
-      else cart.push({ id, quantity: 1 });
-
-      updateCartUI();
-      toggleCartDrawer(true);
-    }
-
-    function updateQuantity(id, delta) {
-      const item = cart.find(i => i.id === id);
-      if (item) {
-        item.quantity += delta;
-        if (item.quantity <= 0) cart = cart.filter(i => i.id !== id);
-      }
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      const container = document.getElementById('cart-items-container');
-      container.innerHTML = '';
-
-      let totalCount = 0;
-      let subtotal = 0;
-
-      if (cart.length === 0) {
-        container.innerHTML = `<div class="text-center py-16 space-y-3">
-          <i class="fa-solid fa-bag-shopping text-4xl text-gray-600"></i>
-          <p class="text-xs text-gray-500">Your shopping bag is empty</p>
-        </div>`;
-      } else {
-        cart.forEach(item => {
-          const p = products.find(prod => prod.id === item.id);
-          totalCount += item.quantity;
-          subtotal += p.price * item.quantity;
-
-          container.insertAdjacentHTML('beforeend', `
-            <div class="flex items-center gap-4 bg-brand-card p-3 rounded-lg border border-brand-border">
-              <img src="${p.image}" class="w-16 h-16 object-cover rounded">
-              <div class="flex-grow">
-                <h5 class="text-xs font-bold text-white truncate">${p.title}</h5>
-                <span class="text-xs text-brand-pink font-semibold">PKR ${p.price.toLocaleString()}</span>
-                <div class="flex items-center gap-3 mt-2">
-                  <button onclick="updateQuantity(${p.id}, -1)" class="w-6 h-6 bg-brand-surface border border-brand-border text-xs text-white rounded">-</button>
-                  <span class="text-xs font-bold text-white">${item.quantity}</span>
-                  <button onclick="updateQuantity(${p.id}, 1)" class="w-6 h-6 bg-brand-surface border border-brand-border text-xs text-white rounded">+</button>
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 glass border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center text-cyan-400 font-black text-xl shadow-lg group-hover:scale-105 transition-transform">
+                    Z
                 </div>
-              </div>
-              <button onclick="updateQuantity(${p.id}, -${item.quantity})" class="text-gray-500 hover:text-white text-xs p-2"><i class="fa-solid fa-xmark"></i></button>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-2xl tracking-tighter text-slate-900 leading-none">ZERO</span>
+                    <span class="text-[10px] font-bold tracking-[0.25em] text-cyan-600 uppercase">Lifestyle</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                <a href="#featured" class="hover:text-cyan-600 transition-colors">Smartwatches</a>
+                <a href="#featured" class="hover:text-cyan-600 transition-colors">Audio & Earbuds</a>
+                <a href="#featured" class="hover:text-cyan-600 transition-colors">Accessories</a>
+                <a href="#featured" class="hover:text-cyan-600 transition-colors">New Arrivals</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleModal('searchModal')" class="p-2.5 rounded-full hover:bg-slate-100 text-slate-700 transition-colors">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                </button>
+                <button onclick="toggleDrawer('wishlistDrawer')" class="p-2.5 rounded-full hover:bg-slate-100 text-slate-700 transition-colors relative">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                    <span id="wishlistBadge" class="absolute top-1 right-1 w-4 h-4 bg-rose-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center hidden">0</span>
+                </button>
+                <button onclick="toggleDrawer('cartDrawer')" class="p-2.5 rounded-full bg-slate-900 text-white hover:bg-cyan-600 transition-colors relative shadow-md">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 w-5 h-5 bg-cyan-500 text-slate-950 text-xs font-black rounded-full flex items-center justify-center">0</span>
+                </button>
             </div>
-          `);
-        });
-      }
+        </div>
+    </header>
 
-      document.getElementById('cart-badge').innerText = totalCount;
-      document.getElementById('cart-subtotal').innerText = `PKR ${subtotal.toLocaleString()}`;
-      document.getElementById('cart-total').innerText = `PKR ${subtotal.toLocaleString()}`;
+    <!-- Hero Banner -->
+    <section class="relative bg-slate-950 text-white overflow-hidden py-20 lg:py-28">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#06b6d4_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-semibold">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i> Next-Gen Wearables
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-none">
+                    ELEVATE YOUR <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">LIFESTYLE.</span>
+                </h1>
+                <p class="text-slate-400 text-lg max-w-xl mx-auto lg:mx-0 font-normal">
+                    Discover cutting-edge smartwatches and immersive audio gear engineered for performance, luxury, and seamless connectivity.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#products" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5">
+                        Shop Collection
+                    </a>
+                    <a href="#featured" class="border border-slate-700 hover:border-slate-500 text-slate-300 font-bold px-8 py-4 rounded-xl transition-all">
+                        Explore Features
+                    </a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 blur-3xl opacity-30 absolute"></div>
+                <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=80" alt="Hero Smartwatch" class="relative z-10 w-80 sm:w-96 rounded-3xl shadow-2xl border border-slate-800 object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+        </div>
+    </section>
 
-      // Free shipping threshold
-      const threshold = 5000;
-      const percent = Math.min(100, Math.round((subtotal / threshold) * 100));
-      document.getElementById('shipping-progress-bar').style.width = `${percent}%`;
-      document.getElementById('shipping-percent').innerText = `${percent}%`;
-
-      if (subtotal >= threshold) {
-        document.getElementById('shipping-status-text').innerText = "🎉 You unlocked FREE Shipping";
-      } else {
-        document.getElementById('shipping-status-text').innerText = `Add PKR ${(threshold - subtotal).toLocaleString()} for FREE Shipping`;
-      }
-    }
-
-    function toggleCartDrawer(forceOpen = false) {
-      const drawer = document.getElementById('cart-drawer');
-      const overlay = document.getElementById('cart-drawer-overlay');
-      const isOpen = !drawer.classList.contains('translate-x-full');
-
-      if (isOpen && !forceOpen) {
-        drawer.classList.add('translate-x-full');
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-      } else {
-        drawer.classList.remove('translate-x-full');
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-      }
-    }
-
-    function openCheckoutModal() {
-      if (cart.length === 0) {
-        alert("Your bag is empty!");
-        return;
-      }
-      toggleCartDrawer();
-      document.getElementById('checkout-modal').classList.remove('hidden');
-    }
-
-    function closeCheckoutModal() {
-      document.getElementById('checkout-modal').classList.add('hidden');
-    }
-
-    function submitOrder(event) {
-      event.preventDefault();
-
-      const name = document.getElementById('cust-name').value;
-      const phone = document.getElementById('cust-phone').value;
-      const city = document.getElementById('cust-city').value;
-      const address = document.getElementById('cust-address').value;
-      const payment = document.getElementById('cust-payment').value;
-
-      let orderSubtotal = 0;
-      const itemsList = cart.map(item => {
-        const p = products.find(prod => prod.id === item.id);
-        orderSubtotal += p.price * item.quantity;
-        return { id: p.id, title: p.title, quantity: item.quantity, price: p.price };
-      });
-
-      const newOrder = {
-        orderId: 'ZERO-' + Math.floor(100000 + Math.random() * 900000),
-        date: new Date().toLocaleString(),
-        customer: { name, phone, city, address },
-        payment,
-        items: itemsList,
-        totalAmount: orderSubtotal,
-        status: 'Pending'
-      };
-
-      orders.unshift(newOrder);
-      localStorage.setItem('zero_orders', JSON.stringify(orders));
-
-      // Reset Cart
-      cart = [];
-      updateCartUI();
-      closeCheckoutModal();
-
-      alert(`🎉 Order Placed Successfully!\n\nOrder ID: ${newOrder.orderId}\nCustomer: ${name}\nTotal: PKR ${orderSubtotal.toLocaleString()}\n\nThank you for shopping with ZERO!`);
-    }
-
-    // --- Search & UI Utilities ---
-    function toggleSearchModal() {
-      document.getElementById('search-modal').classList.toggle('hidden');
-      document.getElementById('search-modal').classList.toggle('flex');
-    }
-
-    function handleSearch() {
-      const q = document.getElementById('search-input').value.toLowerCase();
-      const container = document.getElementById('search-results');
-      container.innerHTML = '';
-      if (!q) return;
-
-      products.filter(p => p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)).forEach(p => {
-        container.insertAdjacentHTML('beforeend', `
-          <div onclick="addToCart(${p.id}); toggleSearchModal();" class="flex items-center gap-4 bg-brand-surface p-3 rounded-lg border border-brand-border hover:border-brand-pink cursor-pointer">
-            <img src="${p.image}" class="w-12 h-12 object-cover rounded">
+    <!-- Product Grid Section -->
+    <section id="products" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 border-b border-slate-200 pb-6">
             <div>
-              <h5 class="text-xs font-bold text-white">${p.title}</h5>
-              <span class="text-xs text-brand-pink font-semibold">PKR ${p.price.toLocaleString()}</span>
+                <h2 class="text-3xl font-extrabold tracking-tight text-slate-900">Featured Catalog</h2>
+                <p class="text-slate-500 text-sm mt-1">Explore our flagship lineup of smart gear</p>
             </div>
-          </div>
-        `);
-      });
-    }
+            <!-- Category Filter Buttons -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0" id="categoryFilter">
+                <button onclick="filterProducts('All')" class="px-4 py-2 rounded-lg text-sm font-bold bg-slate-900 text-white shadow-sm">All</button>
+                <button onclick="filterProducts('Smartwatch')" class="px-4 py-2 rounded-lg text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200">Smartwatches</button>
+                <button onclick="filterProducts('Audio')" class="px-4 py-2 rounded-lg text-sm font-bold bg-slate-100 text-slate-700 hover:bg-slate-200">Audio</button>
+            </div>
+        </div>
 
-    function toggleMobileMenu() {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    }
+        <!-- Dynamic Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Rendered by JavaScript -->
+        </div>
+    </section>
 
-    // ================= SECRET ADMIN ROUTING & AUTHENTICATION =================
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 invisible transition-opacity duration-300">
+        <div onclick="toggleDrawer('cartDrawer')" class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="cartOverlay"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="cartPanel">
+            <div class="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shopping-bag" class="w-5 h-5 text-cyan-600"></i>
+                    <h3 class="font-extrabold text-lg text-slate-900">Your Cart</h3>
+                </div>
+                <button onclick="toggleDrawer('cartDrawer')" class="p-2 hover:bg-slate-200 rounded-full text-slate-500">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div id="cartItemsList" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                <!-- Cart items rendered dynamically -->
+            </div>
 
-    // Keyboard Trigger: Ctrl + Shift + A or Cmd + Shift + A
-    window.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-        e.preventDefault();
-        openAdminAuthModal();
-      }
-    });
+            <div class="p-6 border-t border-slate-200 bg-slate-50 space-y-4">
+                <div class="flex justify-between items-center text-slate-600 text-sm">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal" class="font-bold text-slate-900">PKR 0</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-600 text-sm">
+                    <span>Shipping</span>
+                    <span class="text-emerald-600 font-bold">FREE</span>
+                </div>
+                <div class="flex justify-between items-center text-lg font-black text-slate-900 pt-2 border-t border-slate-200">
+                    <span>Total</span>
+                    <span id="cartTotal" class="text-cyan-600">PKR 0</span>
+                </div>
+                <button onclick="openCheckout()" class="w-full bg-slate-900 hover:bg-cyan-600 text-white font-extrabold py-3.5 rounded-xl transition-colors shadow-lg flex items-center justify-center gap-2">
+                    Proceed to Checkout <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
-    // URL Parameter Trigger Check: ?admin=true or ?portal=chand
-    function checkUrlAdminTrigger() {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('admin') === 'true' || urlParams.get('portal') === 'chand') {
-        openAdminAuthModal();
-      }
-    }
+    <!-- Wishlist Drawer -->
+    <div id="wishlistDrawer" class="fixed inset-0 z-50 invisible transition-opacity duration-300">
+        <div onclick="toggleDrawer('wishlistDrawer')" class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="wishlistOverlay"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col" id="wishlistPanel">
+            <div class="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="heart" class="w-5 h-5 text-rose-500"></i>
+                    <h3 class="font-extrabold text-lg text-slate-900">Wishlist</h3>
+                </div>
+                <button onclick="toggleDrawer('wishlistDrawer')" class="p-2 hover:bg-slate-200 rounded-full text-slate-500">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div id="wishlistItemsList" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                <!-- Wishlist rendered dynamically -->
+            </div>
+        </div>
+    </div>
 
-    function openAdminAuthModal() {
-      if (sessionStorage.getItem('zero_admin_session') === 'active') {
-        launchAdminDashboard();
-      } else {
-        document.getElementById('admin-auth-modal').classList.remove('hidden');
-      }
-    }
+    <!-- Search Modal -->
+    <div id="searchModal" class="fixed inset-0 z-50 hidden flex items-start justify-center pt-20 px-4">
+        <div onclick="toggleModal('searchModal')" class="absolute inset-0 bg-slate-950/70 backdrop-blur-md"></div>
+        <div class="relative bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-slate-200 z-10">
+            <div class="p-4 border-b border-slate-200 flex items-center gap-3">
+                <i data-lucide="search" class="w-5 h-5 text-slate-400"></i>
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search smartwatches, earbuds..." class="w-full bg-transparent outline-none text-slate-900 font-medium placeholder-slate-400 text-lg">
+                <button onclick="toggleModal('searchModal')" class="p-1 hover:bg-slate-100 rounded-lg text-slate-400">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div id="searchResults" class="max-h-96 overflow-y-auto p-4 divide-y divide-slate-100">
+                <p class="text-sm text-slate-400 text-center py-6">Type to search products...</p>
+            </div>
+        </div>
+    </div>
 
-    function closeAdminAuthModal() {
-      document.getElementById('admin-auth-modal').classList.add('hidden');
-    }
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div onclick="toggleModal('checkoutModal')" class="absolute inset-0 bg-slate-950/70 backdrop-blur-md"></div>
+        <div class="relative bg-white w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden z-10 border border-slate-200 max-h-[90vh] flex flex-col">
+            <div class="p-6 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
+                <h3 class="font-extrabold text-xl text-slate-900 flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-emerald-600"></i> Secure Checkout
+                </h3>
+                <button onclick="toggleModal('checkoutModal')" class="p-2 hover:bg-slate-200 rounded-full text-slate-500">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="checkoutForm" onsubmit="processOrder(event)" class="p-6 overflow-y-auto space-y-4 custom-scrollbar">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Full Name</label>
+                    <input type="text" required id="custName" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-cyan-500 outline-none text-sm font-medium">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Phone Number (WhatsApp)</label>
+                    <input type="tel" required id="custPhone" placeholder="03001234567" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-cyan-500 outline-none text-sm font-medium">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Delivery Address</label>
+                    <textarea required id="custAddress" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-cyan-500 outline-none text-sm font-medium"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Payment Method</label>
+                    <select id="custPayment" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-cyan-500 outline-none text-sm font-medium">
+                        <option value="Cash on Delivery">Cash on Delivery (COD)</option>
+                        <option value="JazzCash / EasyPaisa">JazzCash / EasyPaisa</option>
+                    </select>
+                </div>
+                <div class="pt-4 border-t border-slate-200">
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl transition-colors shadow-lg flex items-center justify-center gap-2">
+                        <i data-lucide="message-square" class="w-5 h-5"></i> Complete Order via WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-    function handleAdminLogin(e) {
-      e.preventDefault();
-      const errBox = document.getElementById('admin-login-error');
-      errBox.classList.add('hidden');
+    <!-- SECRET HIDDEN ADMIN MODAL -->
+    <div id="adminAuthModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-950/90 backdrop-blur-md"></div>
+        <div class="relative bg-slate-900 text-white w-full max-w-md rounded-2xl shadow-2xl p-8 border border-slate-800 z-10">
+            <button onclick="toggleModal('adminAuthModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-cyan-500/10 text-cyan-400 rounded-xl flex items-center justify-center mx-auto mb-3 border border-cyan-500/20">
+                    <i data-lucide="lock" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-extrabold text-white">System Admin Access</h3>
+                <p class="text-xs text-slate-400 mt-1">Gated control portal</p>
+            </div>
 
-      // Check Brute Force Lockout
-      if (lockoutUntil && Date.now() < lockoutUntil) {
-        const remainingSecs = Math.ceil((lockoutUntil - Date.now()) / 1000);
-        errBox.innerText = `Too many failed attempts! Locked for ${remainingSecs} seconds.`;
-        errBox.classList.remove('hidden');
-        return;
-      }
+            <form id="adminLoginForm" onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Email</label>
+                    <input type="email" id="adminEmail" required class="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-cyan-500 outline-none text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-1">Password</label>
+                    <input type="password" id="adminPass" required class="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-cyan-500 outline-none text-sm">
+                </div>
+                <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold py-3 rounded-xl transition-colors text-sm">
+                    Verify Credentials
+                </button>
+            </form>
 
-      const email = document.getElementById('admin-email').value.trim();
-      const pass = document.getElementById('admin-pass').value.trim();
+            <!-- 2FA Step -->
+            <form id="admin2FAForm" onsubmit="handle2FAVerify(event)" class="space-y-4 hidden">
+                <div class="p-3 bg-cyan-950/50 border border-cyan-500/30 rounded-xl text-center">
+                    <p class="text-xs text-cyan-300 font-medium">Enter 2FA Dynamic Key:</p>
+                    <span id="generatedOTP" class="text-xl font-mono font-black text-white tracking-widest">======</span>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-400 mb-1">6-Digit OTP</label>
+                    <input type="text" id="otpInput" maxlength="6" required class="w-full px-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-center font-mono tracking-widest text-lg focus:ring-2 focus:ring-cyan-500 outline-none">
+                </div>
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold py-3 rounded-xl transition-colors text-sm">
+                    Authenticate Session
+                </button>
+            </form>
+        </div>
+    </div>
 
-      if (email === 'chandjatt1252@gmail.com' && pass === 'chand1252') {
-        // Step 1 Success -> Generate 2FA Code
-        loginAttempts = 0;
-        currentGeneratedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+    <!-- SECRET ADMIN DASHBOARD PANEL -->
+    <div id="adminDashboard" class="fixed inset-0 z-50 hidden bg-slate-950 text-slate-100 flex flex-col overflow-hidden">
+        <!-- Topbar -->
+        <header class="bg-slate-900 border-b border-slate-800 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="bg-cyan-500 text-slate-950 text-xs font-extrabold px-2.5 py-1 rounded-md">ADMIN</span>
+                <h2 class="font-extrabold text-lg tracking-tight text-white">ZERO Control Dashboard</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="text-xs text-slate-400 hidden sm:inline">Active: <strong class="text-slate-200">chandjatt1252@gmail.com</strong></span>
+                <button onclick="closeAdminDashboard()" class="bg-rose-500/10 text-rose-400 border border-rose-500/20 hover:bg-rose-500 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
+                    <i data-lucide="log-out" class="w-4 h-4"></i> Exit Panel
+                </button>
+            </div>
+        </header>
 
-        document.getElementById('admin-login-form').classList.add('hidden');
-        document.getElementById('admin-otp-form').classList.remove('hidden');
-        document.getElementById('generated-otp-display').innerText = currentGeneratedOtp;
-      } else {
-        loginAttempts += 1;
-        if (loginAttempts >= 3) {
-          lockoutUntil = Date.now() + 60000; // 60 Seconds Cooldown
-          errBox.innerText = "3 Failed attempts! Locked for 60 seconds.";
-        } else {
-          errBox.innerText = `Invalid Credentials! Attempt ${loginAttempts} of 3.`;
+        <!-- Admin Content Area -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-8 custom-scrollbar">
+            <!-- Metrics Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <p class="text-xs font-bold uppercase text-slate-400">Total Orders</p>
+                    <p id="metricOrders" class="text-3xl font-black text-white mt-2">0</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <p class="text-xs font-bold uppercase text-slate-400">Total Revenue</p>
+                    <p id="metricRevenue" class="text-3xl font-black text-cyan-400 mt-2">PKR 0</p>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                    <p class="text-xs font-bold uppercase text-slate-400">Active Products</p>
+                    <p id="metricProducts" class="text-3xl font-black text-emerald-400 mt-2">0</p>
+                </div>
+            </div>
+
+            <!-- Orders Table Section -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden">
+                <div class="p-6 border-b border-slate-800 flex justify-between items-center">
+                    <h3 class="font-extrabold text-lg text-white">Customer Orders</h3>
+                    <button onclick="exportOrdersCSV()" class="bg-slate-800 hover:bg-slate-700 text-xs font-bold px-3 py-2 rounded-lg text-slate-300 border border-slate-700 flex items-center gap-1.5">
+                        <i data-lucide="download" class="w-4 h-4"></i> Export CSV
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-slate-300">
+                        <thead class="bg-slate-950/50 text-xs uppercase font-bold text-slate-400 border-b border-slate-800">
+                            <tr>
+                                <th class="p-4">Order ID</th>
+                                <th class="p-4">Customer</th>
+                                <th class="p-4">Address</th>
+                                <th class="p-4">Items</th>
+                                <th class="p-4">Total</th>
+                                <th class="p-4">Payment</th>
+                                <th class="p-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminOrdersTable" class="divide-y divide-slate-800">
+                            <!-- Dynamically rendered -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Add Product Section -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                <h3 class="font-extrabold text-lg text-white mb-4">Add New Catalog Product</h3>
+                <form onsubmit="handleAddProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" id="newProdName" placeholder="Product Name" required class="bg-slate-800 border border-slate-700 px-4 py-2.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-cyan-500">
+                    <input type="number" id="newProdPrice" placeholder="Price (PKR)" required class="bg-slate-800 border border-slate-700 px-4 py-2.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-cyan-500">
+                    <select id="newProdCategory" class="bg-slate-800 border border-slate-700 px-4 py-2.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-cyan-500">
+                        <option value="Smartwatch">Smartwatch</option>
+                        <option value="Audio">Audio & Earbuds</option>
+                    </select>
+                    <input type="url" id="newProdImg" placeholder="Image URL (Unsplash or Direct Link)" required class="bg-slate-800 border border-slate-700 px-4 py-2.5 rounded-xl text-sm outline-none focus:ring-2 focus:ring-cyan-500">
+                    <button type="submit" class="sm:col-span-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black py-3 rounded-xl transition-colors">
+                        Add Product to Storefront
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-cyan-500 text-slate-950 rounded-lg flex items-center justify-center font-black text-lg">Z</div>
+                    <span class="font-extrabold text-xl text-white">ZERO Lifestyle</span>
+                </div>
+                <p class="text-xs leading-relaxed">Redefining modern tech wearables with high aesthetic elegance and pure performance.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Categories</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white">Smartwatches</a></li>
+                    <li><a href="#" class="hover:text-white">Wireless Earbuds</a></li>
+                    <li><a href="#" class="hover:text-white">Gaming Audio</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Customer Care</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white">Track Order</a></li>
+                    <li><a href="#" class="hover:text-white">Warranty & Support</a></li>
+                    <li><a href="#" class="hover:text-white">Shipping Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Contact Support</h4>
+                <p class="text-xs leading-relaxed">WhatsApp: +92 334 2872211<br>Email: support@zerolifestyle.co</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-slate-900 text-center text-xs text-slate-600">
+            © 2026 ZERO Lifestyle Inc. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- App Engine JavaScript -->
+    <script>
+        // TARGET WHATSAPP NUMBER
+        const WHATSAPP_NUMBER = "923342872211";
+
+        // Initial Data Store
+        const initialProducts = [
+            { id: 'p1', name: 'ZERO Bolt Smartwatch', price: 8999, category: 'Smartwatch', img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80' },
+            { id: 'p2', name: 'ZERO Pulse Wireless Earbuds', price: 5499, category: 'Audio', img: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80' },
+            { id: 'p3', name: 'ZERO Ignite Pro Watch', price: 11999, category: 'Smartwatch', img: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80' },
+            { id: 'p4', name: 'ZERO Wave Gaming Buds', price: 6999, category: 'Audio', img: 'https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=600&q=80' }
+        ];
+
+        // Global State
+        let products = JSON.parse(localStorage.getItem('zero_products')) || initialProducts;
+        let cart = JSON.parse(localStorage.getItem('zero_cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('zero_wishlist')) || [];
+        let orders = JSON.parse(localStorage.getItem('zero_orders')) || [];
+
+        // Secret Admin State
+        let currentOTP = null;
+        let failedLoginAttempts = 0;
+
+        // On Load Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            renderProducts(products);
+            updateCartUI();
+            updateWishlistUI();
+            checkSecretURLParam();
+            setupSecretHotkey();
+        });
+
+        // Secret Hotkey Access: Ctrl + Shift + A
+        function setupSecretHotkey() {
+            window.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                    e.preventDefault();
+                    toggleModal('adminAuthModal');
+                }
+            });
         }
-        errBox.classList.remove('hidden');
-      }
-    }
 
-    function handleOtpVerify(e) {
-      e.preventDefault();
-      const otpInput = document.getElementById('admin-otp-input').value.trim();
-      const otpErr = document.getElementById('otp-error');
-      otpErr.classList.add('hidden');
-
-      if (otpInput === currentGeneratedOtp) {
-        sessionStorage.setItem('zero_admin_session', 'active');
-        closeAdminAuthModal();
-        launchAdminDashboard();
-      } else {
-        otpErr.innerText = "Invalid 2FA Code! Check code displayed above.";
-        otpErr.classList.remove('hidden');
-      }
-    }
-
-    // --- Admin Dashboard Logic ---
-    function launchAdminDashboard() {
-      document.getElementById('admin-dashboard-screen').classList.remove('hidden');
-      document.getElementById('admin-dashboard-screen').classList.add('flex');
-
-      startSessionTimer();
-      renderAdminOrdersTable();
-      updateAdminStats();
-    }
-
-    function logoutAdmin() {
-      sessionStorage.removeItem('zero_admin_session');
-      clearInterval(sessionTimerInterval);
-      document.getElementById('admin-dashboard-screen').classList.add('hidden');
-      document.getElementById('admin-dashboard-screen').classList.remove('flex');
-
-      // Reset Auth Forms
-      document.getElementById('admin-login-form').reset();
-      document.getElementById('admin-otp-form').reset();
-      document.getElementById('admin-login-form').classList.remove('hidden');
-      document.getElementById('admin-otp-form').classList.add('hidden');
-
-      alert("Admin Session Ended Safely.");
-    }
-
-    function startSessionTimer() {
-      remainingSessionTime = 300;
-      clearInterval(sessionTimerInterval);
-
-      sessionTimerInterval = setInterval(() => {
-        remainingSessionTime--;
-        const mins = Math.floor(remainingSessionTime / 60).toString().padStart(2, '0');
-        const secs = (remainingSessionTime % 60).toString().padStart(2, '0');
-
-        document.getElementById('session-timer-display').innerText = `${mins}:${secs}`;
-
-        if (remainingSessionTime <= 0) {
-          alert("Admin Session Expired due to 5 minutes of inactivity.");
-          logoutAdmin();
+        // Secret URL Access: ?admin=true
+        function checkSecretURLParam() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('admin') === 'true') {
+                toggleModal('adminAuthModal');
+            }
         }
-      }, 1000);
-    }
 
-    function updateAdminStats() {
-      let totalRev = 0;
-      let delivered = 0;
-      let pending = 0;
+        // Render Product Cards
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = items.map(p => `
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden bg-slate-100 aspect-square">
+                        <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <button onclick="toggleWishlist('${p.id}')" class="absolute top-3 right-3 p-2.5 rounded-full bg-white/80 backdrop-blur-md text-slate-700 hover:text-rose-500 shadow-md transition-colors">
+                            <i data-lucide="heart" class="w-4 h-4 ${wishlist.some(w => w.id === p.id) ? 'fill-rose-500 text-rose-500' : ''}"></i>
+                        </button>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-[10px] font-black uppercase tracking-wider text-cyan-600 bg-cyan-50 px-2 py-0.5 rounded-md">${p.category}</span>
+                            <h3 class="font-bold text-slate-900 mt-2 text-base leading-snug">${p.name}</h3>
+                            <p class="font-black text-lg text-slate-900 mt-1">PKR ${p.price.toLocaleString()}</p>
+                        </div>
+                        <button onclick="addToCart('${p.id}')" class="w-full bg-slate-900 hover:bg-cyan-600 text-white font-extrabold py-3 rounded-xl transition-colors shadow-md flex items-center justify-center gap-2 text-sm">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
 
-      orders.forEach(o => {
-        totalRev += o.totalAmount;
-        if (o.status === 'Delivered') delivered++;
-        if (o.status === 'Pending') pending++;
-      });
+        // Filter Products
+        function filterProducts(cat) {
+            if (cat === 'All') {
+                renderProducts(products);
+            } else {
+                renderProducts(products.filter(p => p.category === cat));
+            }
+        }
 
-      document.getElementById('stat-sales').innerText = `PKR ${totalRev.toLocaleString()}`;
-      document.getElementById('stat-orders').innerText = orders.length;
-      document.getElementById('stat-pending').innerText = pending;
-      document.getElementById('stat-delivered').innerText = delivered;
-    }
+        // Cart Engine
+        function addToCart(pId) {
+            const product = products.find(p => p.id === pId);
+            const existing = cart.find(c => c.id === pId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+            saveCart();
+            updateCartUI();
+            toggleDrawer('cartDrawer', true);
+        }
 
-    function renderAdminOrdersTable() {
-      const tbody = document.getElementById('admin-orders-table-body');
-      tbody.innerHTML = '';
+        function updateCartQty(pId, delta) {
+            const item = cart.find(c => c.id === pId);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(c => c.id !== pId);
+                }
+            }
+            saveCart();
+            updateCartUI();
+        }
 
-      if (orders.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" class="p-8 text-center text-gray-500">No orders placed yet.</td></tr>`;
-        return;
-      }
+        function saveCart() {
+            localStorage.setItem('zero_cart', JSON.stringify(cart));
+        }
 
-      orders.forEach(o => {
-        const itemsSummary = o.items.map(i => `${i.title} (x${i.quantity})`).join(', ');
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            badge.innerText = totalQty;
 
-        const row = `
-          <tr class="hover:bg-brand-card/50 transition-colors">
-            <td class="p-4 font-mono font-bold text-brand-pink">${o.orderId}<br><span class="text-[10px] text-gray-500 font-sans">${o.date}</span></td>
-            <td class="p-4"><strong class="text-white">${o.customer.name}</strong><br><span class="text-[10px] text-gray-400">${o.customer.phone}</span></td>
-            <td class="p-4 text-gray-300">${o.customer.address}, ${o.customer.city}</td>
-            <td class="p-4 text-gray-300 max-w-xs truncate" title="${itemsSummary}">${itemsSummary}</td>
-            <td class="p-4 font-bold text-white">PKR ${o.totalAmount.toLocaleString()}</td>
-            <td class="p-4">
-              <select onchange="changeOrderStatus('${o.orderId}', this.value)" class="bg-brand-card border border-brand-border rounded px-2 py-1 text-xs font-bold ${o.status === 'Delivered' ? 'text-emerald-400' : 'text-amber-400'}">
-                <option value="Pending" ${o.status === 'Pending' ? 'selected' : ''}>Pending</option>
-                <option value="Processing" ${o.status === 'Processing' ? 'selected' : ''}>Processing</option>
-                <option value="Shipped" ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
-                <option value="Delivered" ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option>
-                <option value="Cancelled" ${o.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
-              </select>
-            </td>
-            <td class="p-4 text-right">
-              <button onclick="deleteOrder('${o.orderId}')" class="p-2 text-rose-500 hover:text-rose-400"><i class="fa-solid fa-trash"></i></button>
-            </td>
-          </tr>
-        `;
-        tbody.insertAdjacentHTML('beforeend', row);
-      });
-    }
+            const list = document.getElementById('cartItemsList');
+            if (cart.length === 0) {
+                list.innerHTML = `<div class="text-center py-12 text-slate-400 text-sm">Your cart is empty.</div>`;
+            } else {
+                list.innerHTML = cart.map(item => `
+                    <div class="flex items-center gap-4 border-b border-slate-100 pb-4">
+                        <img src="${item.img}" class="w-16 h-16 rounded-xl object-cover bg-slate-100">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-slate-900 text-sm">${item.name}</h4>
+                            <p class="text-xs text-slate-500 font-semibold mt-0.5">PKR ${item.price.toLocaleString()}</p>
+                            <div class="flex items-center gap-2 mt-2">
+                                <button onclick="updateCartQty('${item.id}', -1)" class="w-6 h-6 rounded-md bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center hover:bg-slate-200">-</button>
+                                <span class="text-xs font-bold w-4 text-center">${item.qty}</span>
+                                <button onclick="updateCartQty('${item.id}', 1)" class="w-6 h-6 rounded-md bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center hover:bg-slate-200">+</button>
+                            </div>
+                        </div>
+                        <span class="font-bold text-sm text-slate-900">PKR ${(item.price * item.qty).toLocaleString()}</span>
+                    </div>
+                `).join('');
+            }
 
-    function changeOrderStatus(orderId, newStatus) {
-      const order = orders.find(o => o.orderId === orderId);
-      if (order) {
-        order.status = newStatus;
-        localStorage.setItem('zero_orders', JSON.stringify(orders));
-        updateAdminStats();
-      }
-    }
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            document.getElementById('cartSubtotal').innerText = `PKR ${total.toLocaleString()}`;
+            document.getElementById('cartTotal').innerText = `PKR ${total.toLocaleString()}`;
+        }
 
-    function deleteOrder(orderId) {
-      if (confirm(`Delete record for order ${orderId}?`)) {
-        orders = orders.filter(o => o.orderId !== orderId);
-        localStorage.setItem('zero_orders', JSON.stringify(orders));
-        renderAdminOrdersTable();
-        updateAdminStats();
-      }
-    }
+        // Wishlist Engine
+        function toggleWishlist(pId) {
+            const product = products.find(p => p.id === pId);
+            const index = wishlist.findIndex(w => w.id === pId);
+            if (index > -1) {
+                wishlist.splice(index, 1);
+            } else {
+                wishlist.push(product);
+            }
+            localStorage.setItem('zero_wishlist', JSON.stringify(wishlist));
+            updateWishlistUI();
+            renderProducts(products);
+        }
 
-    function handleAddNewProduct(e) {
-      e.preventDefault();
-      const title = document.getElementById('new-prod-title').value;
-      const category = document.getElementById('new-prod-category').value;
-      const price = parseInt(document.getElementById('new-prod-price').value);
-      const image = document.getElementById('new-prod-img').value;
-      const badge = document.getElementById('new-prod-badge').value || null;
+        function updateWishlistUI() {
+            const badge = document.getElementById('wishlistBadge');
+            badge.innerText = wishlist.length;
+            if (wishlist.length > 0) badge.classList.remove('hidden');
+            else badge.classList.add('hidden');
 
-      const newP = { id: Date.now(), title, category, price, originalPrice: null, badge, image };
-      products.unshift(newP);
-      localStorage.setItem('zero_products', JSON.stringify(products));
+            const list = document.getElementById('wishlistItemsList');
+            if (wishlist.length === 0) {
+                list.innerHTML = `<div class="text-center py-12 text-slate-400 text-sm">No items in wishlist.</div>`;
+            } else {
+                list.innerHTML = wishlist.map(item => `
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.img}" class="w-12 h-12 rounded-lg object-cover">
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">${item.name}</h4>
+                                <p class="text-xs text-slate-500">PKR ${item.price.toLocaleString()}</p>
+                            </div>
+                        </div>
+                        <button onclick="addToCart('${item.id}')" class="p-2 bg-slate-900 text-white rounded-lg hover:bg-cyan-600 transition-colors">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+            lucide.createIcons();
+        }
 
-      renderProducts();
-      e.target.reset();
-      alert("Product published to store catalog!");
-    }
+        // Drawers & Modals Control
+        function toggleDrawer(id, forceOpen = false) {
+            const drawer = document.getElementById(id);
+            const panel = drawer.querySelector('[id$="Panel"]');
+            const overlay = drawer.querySelector('[id$="Overlay"]');
 
-    function exportOrdersToCSV() {
-      if (orders.length === 0) {
-        alert("No orders available to export.");
-        return;
-      }
+            if (forceOpen || drawer.classList.contains('invisible')) {
+                drawer.classList.remove('invisible');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    panel.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                overlay.classList.add('opacity-0');
+                panel.classList.add('translate-x-full');
+                setTimeout(() => {
+                    drawer.classList.add('invisible');
+                }, 300);
+            }
+        }
 
-      let csv = "Order ID,Date,Customer Name,Phone,City,Address,Total Amount,Status\n";
-      orders.forEach(o => {
-        csv += `"${o.orderId}","${o.date}","${o.customer.name}","${o.customer.phone}","${o.customer.city}","${o.customer.address}",${o.totalAmount},"${o.status}"\n`;
-      });
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.toggle('hidden');
+        }
 
-      const blob = new Blob([csv], { type: 'text/csv' });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.setAttribute('href', url);
-      a.setAttribute('download', `ZERO_Orders_Report_${Date.now()}.csv`);
-      a.click();
-    }
+        // Search Engine
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const results = document.getElementById('searchResults');
+            if (!query) {
+                results.innerHTML = `<p class="text-sm text-slate-400 text-center py-6">Type to search products...</p>`;
+                return;
+            }
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+            if (filtered.length === 0) {
+                results.innerHTML = `<p class="text-sm text-slate-400 text-center py-6">No products found.</p>`;
+            } else {
+                results.innerHTML = filtered.map(p => `
+                    <div onclick="addToCart('${p.id}'); toggleModal('searchModal');" class="py-3 flex items-center justify-between hover:bg-slate-50 px-2 rounded-lg cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <img src="${p.img}" class="w-10 h-10 rounded-lg object-cover">
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900">${p.name}</h4>
+                                <span class="text-xs text-cyan-600 font-semibold">PKR ${p.price.toLocaleString()}</span>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                    </div>
+                `).join('');
+            }
+            lucide.createIcons();
+        }
 
-    // --- On Window Load Initialization ---
-    window.onload = function () {
-      renderProducts();
-      updateCartUI();
-      renderWishlistUI();
-      checkUrlAdminTrigger();
-    };
-  </script>
+        // Checkout & WhatsApp Order Engine
+        function openCheckout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            toggleDrawer('cartDrawer');
+            toggleModal('checkoutModal');
+        }
+
+        function processOrder(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const address = document.getElementById('custAddress').value;
+            const payment = document.getElementById('custPayment').value;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            const newOrder = {
+                id: 'ORD-' + Math.floor(100000 + Math.random() * 900000),
+                name, phone, address, payment,
+                items: [...cart],
+                total,
+                date: new Date().toLocaleString()
+            };
+
+            // Save to Local Database Backup
+            orders.push(newOrder);
+            localStorage.setItem('zero_orders', JSON.stringify(orders));
+
+            // Format WhatsApp Message Text
+            let itemsText = cart.map((i, idx) => `${idx + 1}. *${i.name}* (x${i.qty}) - PKR ${(i.price * i.qty).toLocaleString()}`).join('%0A');
+            
+            let message = `🛒 *NEW ORDER - ZERO LIFESTYLE*%0A%0A` +
+                          `*Order ID:* ${newOrder.id}%0A` +
+                          `*Customer Name:* ${name}%0A` +
+                          `*Phone:* ${phone}%0A` +
+                          `*Address:* ${address}%0A` +
+                          `*Payment Method:* ${payment}%0A%0A` +
+                          `📦 *Ordered Items:*%0A${itemsText}%0A%0A` +
+                          `💰 *Total Amount:* PKR ${total.toLocaleString()}%0A%0A` +
+                          `Please confirm my order. Thank you!`;
+
+            // Reset Local Cart State
+            cart = [];
+            saveCart();
+            updateCartUI();
+            toggleModal('checkoutModal');
+
+            // Redirect to WhatsApp API
+            const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            window.open(waUrl, '_blank');
+        }
+
+        // SECRET ADMIN DASHBOARD ENGINE
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmail').value;
+            const pass = document.getElementById('adminPass').value;
+
+            if (failedLoginAttempts >= 3) {
+                alert("Account locked due to 3 failed attempts. Try again in 60 seconds.");
+                return;
+            }
+
+            if (email === "chandjatt1252@gmail.com" && pass === "chand1252") {
+                // Generate Dynamic 2FA Code
+                currentOTP = Math.floor(100000 + Math.random() * 900000).toString();
+                document.getElementById('generatedOTP').innerText = currentOTP;
+                document.getElementById('adminLoginForm').classList.add('hidden');
+                document.getElementById('admin2FAForm').classList.remove('hidden');
+            } else {
+                failedLoginAttempts++;
+                alert(`Invalid Credentials! Attempt ${failedLoginAttempts}/3`);
+            }
+        }
+
+        function handle2FAVerify(e) {
+            e.preventDefault();
+            const inputOTP = document.getElementById('otpInput').value;
+            if (inputOTP === currentOTP) {
+                toggleModal('adminAuthModal');
+                openAdminDashboard();
+            } else {
+                alert("Invalid OTP Key!");
+            }
+        }
+
+        function openAdminDashboard() {
+            document.getElementById('adminDashboard').classList.remove('hidden');
+            renderAdminData();
+        }
+
+        function closeAdminDashboard() {
+            document.getElementById('adminDashboard').classList.add('hidden');
+            // Reset forms
+            document.getElementById('adminLoginForm').classList.remove('hidden');
+            document.getElementById('admin2FAForm').classList.add('hidden');
+        }
+
+        function renderAdminData() {
+            document.getElementById('metricOrders').innerText = orders.length;
+            const rev = orders.reduce((sum, o) => sum + o.total, 0);
+            document.getElementById('metricRevenue').innerText = `PKR ${rev.toLocaleString()}`;
+            document.getElementById('metricProducts').innerText = products.length;
+
+            const tbody = document.getElementById('adminOrdersTable');
+            tbody.innerHTML = orders.map(o => `
+                <tr class="hover:bg-slate-900/50">
+                    <td class="p-4 font-mono text-cyan-400 font-bold">${o.id}</td>
+                    <td class="p-4">
+                        <div class="font-bold text-white">${o.name}</div>
+                        <div class="text-xs text-slate-500">${o.phone}</div>
+                    </td>
+                    <td class="p-4 text-xs max-w-xs truncate">${o.address}</td>
+                    <td class="p-4 text-xs">${o.items.map(i => `${i.name} (x${i.qty})`).join(', ')}</td>
+                    <td class="p-4 font-bold text-white">PKR ${o.total.toLocaleString()}</td>
+                    <td class="p-4"><span class="bg-slate-800 text-slate-300 text-xs px-2 py-1 rounded">${o.payment}</span></td>
+                    <td class="p-4">
+                        <button onclick="deleteOrder('${o.id}')" class="text-rose-400 hover:text-rose-300 text-xs font-bold">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function deleteOrder(id) {
+            orders = orders.filter(o => o.id !== id);
+            localStorage.setItem('zero_orders', JSON.stringify(orders));
+            renderAdminData();
+        }
+
+        function handleAddProduct(e) {
+            e.preventDefault();
+            const name = document.getElementById('newProdName').value;
+            const price = parseFloat(document.getElementById('newProdPrice').value);
+            const category = document.getElementById('newProdCategory').value;
+            const img = document.getElementById('newProdImg').value;
+
+            const newProd = {
+                id: 'p' + (products.length + 1),
+                name, price, category, img
+            };
+
+            products.push(newProd);
+            localStorage.setItem('zero_products', JSON.stringify(products));
+            renderProducts(products);
+            renderAdminData();
+            alert("Product added to catalog successfully!");
+            e.target.reset();
+        }
+
+        function exportOrdersCSV() {
+            if (orders.length === 0) {
+                alert("No orders available to export.");
+                return;
+            }
+            let csv = "Order ID,Customer Name,Phone,Address,Total (PKR),Payment Method,Date\n";
+            orders.forEach(o => {
+                csv += `"${o.id}","${o.name}","${o.phone}","${o.address}",${o.total},"${o.payment}","${o.date}"\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', 'zero_orders_export.csv');
+            a.click();
+        }
+    </script>
 </body>
-
 </html>
